@@ -1,6 +1,6 @@
 "use client";
 
-import { ChevronDown, CalendarRange, Download, Filter } from "lucide-react";
+import { ChevronDown, CalendarRange, Download, Filter, Menu } from "lucide-react";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import {
@@ -14,20 +14,36 @@ import {
 
 interface DashboardHeaderProps {
   name?: string;
+  onOpenSidebar?: () => void;
 }
 
-export function DashboardHeader({ name = "Arif Hossain" }: DashboardHeaderProps) {
-  const todayLabel = "Monday, 11 November 2025";
-
+export function DashboardHeader({
+  name = "Arif Hossain",
+  onOpenSidebar,
+}: DashboardHeaderProps) {
   return (
-    <header className="flex items-center justify-between gap-4">
-      <div>
-        <p className="text-xs font-medium uppercase tracking-wide text-neutral-500">
-          Welcome {name}
-        </p>
-        <h1 className="mt-1 text-xl font-semibold tracking-tight text-neutral-900 dark:text-neutral-50">
-          Today is {todayLabel}
-        </h1>
+    <header className="flex flex-wrap items-center justify-between gap-3 sm:flex-nowrap">
+      <div className="flex items-center gap-3">
+        {onOpenSidebar && (
+          <Button
+            type="button"
+            variant="outline"
+            size="icon"
+            className="inline-flex h-9 w-9 shrink-0 rounded-full border-neutral-200 text-neutral-700 hover:border-neutral-300 hover:bg-neutral-50 dark:border-neutral-800 dark:text-neutral-100 dark:hover:bg-neutral-900 md:hidden"
+            onClick={onOpenSidebar}
+            aria-label="Open navigation"
+          >
+            <Menu className="h-4 w-4" />
+          </Button>
+        )}
+        <div>
+          <p className="text-xs font-medium uppercase tracking-wide text-neutral-500">
+            Welcome {name}
+          </p>
+          <h1 className="mt-1 text-xl font-semibold tracking-tight text-neutral-900 dark:text-neutral-50">
+            Interior ERP overview
+          </h1>
+        </div>
       </div>
 
       <div className="flex items-center gap-3">

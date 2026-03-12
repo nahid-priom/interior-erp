@@ -41,7 +41,7 @@ export function TableRow(
 ) {
   return (
     <tr
-      className="border-t border-neutral-100 px-6 py-4 text-sm hover:bg-neutral-50 dark:border-neutral-800 dark:hover:bg-neutral-900/60"
+      className="border-t border-neutral-100 text-sm hover:bg-neutral-50 dark:border-neutral-800 dark:hover:bg-neutral-900/60"
       {...props}
     />
   );
@@ -52,7 +52,7 @@ export function TableHead(
 ) {
   return (
     <th
-      className="px-6 py-3 text-xs font-semibold uppercase tracking-wider text-muted-foreground"
+      className="px-4 py-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground sm:px-6 sm:py-3"
       {...props}
     />
   );
@@ -63,7 +63,7 @@ export function TableCell(
 ) {
   return (
     <td
-      className="whitespace-nowrap px-6 py-4 align-middle text-sm text-neutral-800 dark:text-neutral-100"
+      className="whitespace-nowrap px-4 py-3 align-middle text-sm text-neutral-800 dark:text-neutral-100 sm:px-6 sm:py-4"
       {...props}
     />
   );

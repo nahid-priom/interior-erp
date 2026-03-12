@@ -758,7 +758,7 @@ export default function DesignConceptPage() {
   );
 
   return (
-    <div className="space-y-6 px-4 pb-8 md:px-8 lg:px-10">
+    <div className="space-y-6 pb-8">
       {/* Page header */}
       <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
         <div>
