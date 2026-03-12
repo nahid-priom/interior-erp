@@ -26,23 +26,8 @@ export interface SheetProps {
 }
 
 export function Sheet({ open = false, onOpenChange, children }: SheetProps) {
-  const [uncontrolledOpen, setUncontrolledOpen] = React.useState(open);
-
-  const isControlled = onOpenChange !== undefined;
-  const currentOpen = isControlled ? open : uncontrolledOpen;
-
-  const setOpen = React.useCallback(
-    (value: boolean) => {
-      if (!isControlled) {
-        setUncontrolledOpen(value);
-      }
-      onOpenChange?.(value);
-    },
-    [isControlled, onOpenChange],
-  );
-
   return (
-    <SheetContext.Provider value={{ open: !!currentOpen, onOpenChange: setOpen }}>
+    <SheetContext.Provider value={{ open: !!open, onOpenChange: onOpenChange ?? (() => {}) }}>
       {children}
     </SheetContext.Provider>
   );
@@ -194,52 +179,5 @@ export function SheetClose({ className, ...props }: SheetCloseProps) {
     >
       <X className="h-4 w-4" />
     </Button>
-  );
-}
-
-export interface SheetTriggerProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  asChild?: boolean;
-}
-
-export function SheetTrigger({
-  asChild,
-  className,
-  children,
-  onClick,
-  ...props
-}: SheetTriggerProps) {
-  const { open, onOpenChange } = useSheet();
-
-  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-    onClick?.(event);
-    if (!event.defaultPrevented) {
-      onOpenChange(!open);
-    }
-  };
-
-  if (asChild && React.isValidElement(children)) {
-    const child = children as React.ReactElement<any>;
-    return React.cloneElement(child, {
-      onClick: (event: React.MouseEvent<any>) => {
-        if (typeof child.props.onClick === "function") {
-          child.props.onClick(event);
-        }
-        if (!event.defaultPrevented) {
-          onOpenChange(!open);
-        }
-      },
-    });
-  }
-
-  return (
-    <button
-      type="button"
-      className={className}
-      onClick={handleClick}
-      {...props}
-    >
-      {children}
-    </button>
   );
 }

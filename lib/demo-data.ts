@@ -71,54 +71,104 @@ export const projectCodes: ProjectCode[] = [
 
 export const projects = [
   {
-    code: "DU-0001",
-    name: "12 Floors Commercial Building",
-    client: "North View Properties Ltd.",
+    code: "INT-2401",
+    name: "Banani Corporate Office Fit-out",
+    client: "Nabil Group",
   },
   {
-    code: "CTG-0007",
-    name: "Factory Foundation Work",
-    client: "Bay Industrial Holdings",
+    code: "INT-2402",
+    name: "Dhanmondi Apartment Interior",
+    client: "Rafiq Ahmed",
   },
   {
-    code: "SYL-0003",
-    name: "Residential Tower Phase 1",
-    client: "Sylhet Heights Developments",
+    code: "INT-2403",
+    name: "Gulshan Showroom Renovation",
+    client: "Bengal Workspace Ltd",
   },
   {
-    code: "GZP-0004",
-    name: "10 Katha Plot Development",
-    client: "Gazipur Land Development",
+    code: "INT-2404",
+    name: "Uttara Restaurant Interior",
+    client: "Lakeshore Café",
   },
   {
-    code: "DU-0002",
-    name: "Corporate Office Block – Banani",
-    client: "Urban Edge Properties",
-  },
-  {
-    code: "DU-0003",
-    name: "Mixed Use Building – Mirpur",
+    code: "INT-2405",
+    name: "Bashundhara Executive Office",
     client: "Rahman Holdings",
   },
   {
-    code: "CTG-0008",
-    name: "Port Warehouse Extension",
-    client: "Bay Industrial Holdings",
+    code: "INT-2406",
+    name: "Mirpur Studio Apartment Custom Interior",
+    client: "Tasnia Karim",
   },
   {
-    code: "SYL-0004",
-    name: "Community Hospital Building",
-    client: "Sylhet Health Trust",
+    code: "INT-2407",
+    name: "Chattogram Retail Display Project",
+    client: "Urban Edge Properties",
   },
   {
-    code: "GZP-0005",
-    name: "Factory Shed & Utility Block",
-    client: "Gazipur Land Development",
+    code: "INT-2408",
+    name: "Gulshan Executive Floor Refurbishment",
+    client: "Rahman Holdings",
   },
   {
-    code: "DU-0004",
-    name: "Residential Complex – Bashundhara",
-    client: "North View Properties Ltd.",
+    code: "INT-2409",
+    name: "Uttara Duplex Luxury Interior",
+    client: "Rafiq Ahmed",
+  },
+  {
+    code: "INT-2410",
+    name: "Bashundhara Board Room Upgrade",
+    client: "Rahman Holdings",
+  },
+  {
+    code: "INT-2411",
+    name: "Banani Co-working Space Fit-out",
+    client: "Urban Edge Properties",
+  },
+  {
+    code: "INT-2412",
+    name: "Dhanmondi Clinic Reception Interior",
+    client: "Rahman Holdings",
+  },
+  {
+    code: "INT-2413",
+    name: "Gulshan Café Interior Refresh",
+    client: "Lakeshore Café",
+  },
+  {
+    code: "INT-2414",
+    name: "Chattogram Sales Office Interior",
+    client: "Nabil Group",
+  },
+  {
+    code: "INT-2415",
+    name: "Mirpur Retail Kiosk Design & Build",
+    client: "Bengal Workspace Ltd",
+  },
+  {
+    code: "INT-2416",
+    name: "Banani High-rise Lobby Upgrade",
+    client: "Urban Edge Properties",
+  },
+  {
+    code: "INT-2417",
+    name: "Bashundhara HR Floor Interior",
+    client: "Rahman Holdings",
+  },
+  {
+    code: "INT-2418",
+    name: "Gulshan Law Chamber Fit-out",
+    client: "Tasnia Karim",
+  },
+  {
+    code: "INT-2419",
+    name: "Uttara Boutique Store Interior",
+    client: "Bengal Workspace Ltd",
+  },
+  {
+    code: "INT-2420",
+    name: "Banani Studio Apartment Interior",
+    client: "Rafiq Ahmed",
   },
 ] as const;
 
@@ -192,17 +242,17 @@ export const materials = [
 ] as const;
 
 export const employees = [
-  { name: "Arif Hossain", role: "Project Engineer", department: "Projects" },
-  { name: "Tanvir Hasan", role: "Site Supervisor", department: "Site Operations" },
+  { name: "Arif Hossain", role: "Project Manager", department: "Projects" },
+  { name: "Tanvir Hasan", role: "Site Supervisor", department: "Projects" },
   {
     name: "Mehedi Islam",
     role: "Procurement Officer",
     department: "Procurement",
   },
-  { name: "Nusrat Jahan", role: "HR Executive", department: "HR & Administration" },
-  { name: "Sharif Uddin", role: "Accounts Officer", department: "Accounts & Finance" },
-  { name: "Rakib Molla", role: "Store In-Charge", department: "Central Store" },
-  { name: "Fahim Reza", role: "Planning Engineer", department: "Planning" },
+  { name: "Nusrat Jahan", role: "CRM Executive", department: "CRM" },
+  { name: "Sharif Uddin", role: "Accounts Manager", department: "Accounts" },
+  { name: "Rakib Molla", role: "Workshop In-Charge", department: "Workshop" },
+  { name: "Fahim Reza", role: "Design Coordinator", department: "Design" },
 ] as const;
 
 export const contractors = [
@@ -220,7 +270,7 @@ export const contractors = [
 
 export const currency = "BDT";
 
-// Leads data for construction enquiries
+// Leads & CRM demo data
 export const leadPipelineStages = [
   "Lead",
   "Site Visit",
@@ -279,7 +329,7 @@ export const demoLeads: DemoLead[] = [
     phone: "+8801812-987654",
     email: "rafiq.apt@example.com",
     source: "Website",
-    projectType: "Residential Building",
+    projectType: "Apartment Interior",
     location: "Dhanmondi, Dhaka",
     budget: 1800000,
     assignedTo: "Nusrat Jahan",
@@ -293,7 +343,7 @@ export const demoLeads: DemoLead[] = [
     phone: "+8801913-112233",
     email: "lakeshore.int@example.com",
     source: "Facebook",
-    projectType: "Food Court Block",
+    projectType: "Restaurant Interior",
     location: "Uttara, Dhaka",
     budget: 3200000,
     assignedTo: "Fahim Reza",

@@ -38,9 +38,6 @@ const config: Config = {
           foreground: "hsl(222, 47%, 11%)",
         },
       },
-      boxShadow: {
-        soft: "0 18px 45px rgba(15, 23, 42, 0.04)",
-      },
       borderRadius: {
         lg: "0.75rem",
         md: "0.5rem",

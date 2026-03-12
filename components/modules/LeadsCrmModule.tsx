@@ -175,10 +175,10 @@ export function LeadsCrmModule() {
       <div className="flex flex-wrap items-center justify-between gap-4">
         <div>
           <h1 className="text-xl font-semibold tracking-tight text-neutral-900 dark:text-neutral-50">
-            Construction Leads Register
+            Leads &amp; CRM
           </h1>
           <p className="mt-1 text-sm text-neutral-600 dark:text-neutral-400">
-            Capture construction project enquiries, manage follow-ups, and move deals through the workflow from Lead to Client Approval.
+            Capture interior leads, manage follow-ups, and move deals through the workflow from Lead to Client Approval.
           </p>
         </div>
         <div className="flex flex-wrap items-center gap-3">

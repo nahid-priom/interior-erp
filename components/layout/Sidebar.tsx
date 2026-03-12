@@ -1,133 +1,81 @@
 "use client";
 
-import type React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
   LayoutDashboard,
-  BarChart3,
-  ShieldCheck,
   Users,
-  BadgeDollarSign,
-  FileSignature,
   FolderKanban,
-  Boxes,
-  HardHat,
-  Building2,
   FileSpreadsheet,
-  ReceiptIndianRupee,
-  Settings2,
+  Briefcase,
+  CheckSquare,
+  ShoppingCart,
+  Boxes,
+  Factory,
+  Users2,
+  Banknote,
+  BadgeDollarSign,
+  ExternalLink,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-type NavItem = {
-  label: string;
-  href: string;
-  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
-};
-
-export type NavSection = {
-  title: string;
-  items: NavItem[];
-};
-
-export const navSections: NavSection[] = [
-  {
-    title: "OVERVIEW",
-    items: [
-      { label: "Dashboard", href: "/dashboard", icon: LayoutDashboard },
-      { label: "Analytics", href: "/analytics", icon: BarChart3 },
-      { label: "User Access", href: "/user-access", icon: ShieldCheck },
-    ],
-  },
-  {
-    title: "OPERATIONS",
-    items: [
-      { label: "HRM", href: "/hrm/employees", icon: Users },
-      { label: "Payroll", href: "/payroll/salary", icon: BadgeDollarSign },
-      {
-        label: "Agreements & Contracts",
-        href: "/agreements-contracts",
-        icon: FileSignature,
-      },
-      { label: "Projects", href: "/projects/all-projects", icon: FolderKanban },
-      { label: "Inventory", href: "/inventory/store-list", icon: Boxes },
-      {
-        label: "Sub-Contractors",
-        href: "/subcontractors/information",
-        icon: HardHat,
-      },
-      { label: "Flats", href: "/flats/sales", icon: Building2 },
-      {
-        label: "Money Indent",
-        href: "/money-indent/settings",
-        icon: FileSpreadsheet,
-      },
-    ],
-  },
-  {
-    title: "FINANCE",
-    items: [
-      {
-        label: "Accounts",
-        href: "/accounts/payment-voucher",
-        icon: ReceiptIndianRupee,
-      },
-    ],
-  },
-  {
-    title: "SYSTEM",
-    items: [{ label: "Settings", href: "/settings", icon: Settings2 }],
-  },
+const menuItems = [
+  { label: "Dashboard", href: "/interior", icon: LayoutDashboard },
+  { label: "CRM / Leads", href: "/interior/leads-crm", icon: Users },
+  { label: "Design Projects", href: "/interior/design-concept", icon: FolderKanban },
+  { label: "BOQ & Estimation", href: "/interior/boq-estimation", icon: FileSpreadsheet },
+  { label: "Project Management", href: "/interior/project-management", icon: Briefcase },
+  { label: "Task Management", href: "/interior/task-management", icon: CheckSquare },
+  { label: "Procurement", href: "/interior/procurement-purchase", icon: ShoppingCart },
+  { label: "Inventory", href: "/interior/inventory-warehouse", icon: Boxes },
+  { label: "Production", href: "/interior/production-workshop", icon: Factory },
+  { label: "Labour & Contractors", href: "/interior/labour-contractors", icon: Users2 },
+  { label: "Finance", href: "/interior/finance-accounting", icon: Banknote },
+  { label: "HR & Payroll", href: "/interior/hr-payroll", icon: BadgeDollarSign },
+  { label: "Client Portal", href: "/interior/client-portal", icon: ExternalLink },
 ];
 
 export function Sidebar() {
   const pathname = usePathname();
 
   return (
-    <aside className="hidden h-screen w-64 flex-col border-r border-neutral-200 bg-white px-4 py-5 dark:border-neutral-800 dark:bg-neutral-950 md:flex">
+    <aside className="flex h-screen w-64 flex-col border-r border-neutral-200 bg-white px-4 py-5 dark:border-neutral-800 dark:bg-neutral-950">
       <div className="mb-6 flex items-center gap-3 px-2">
         <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-indigo-600 text-sm font-semibold text-white shadow-sm">
-          AE
+          IE
         </div>
         <div>
-          <div className="text-xs font-semibold tracking-[0.12em] text-neutral-500">
-            CONSTRUCTION ERP
-          </div>
           <div className="text-sm font-semibold tracking-tight text-neutral-900 dark:text-neutral-50">
-            ARK ENGINEERING &amp; CONSTRUCTIONS
+            Interior ERP
+          </div>
+          <div className="text-xs text-neutral-500">
+            Interior Design Management System
           </div>
         </div>
       </div>
 
-      <nav className="flex-1 space-y-4 overflow-y-auto pr-1 text-sm">
-        {navSections.map((section) => (
-          <div key={section.title} className="space-y-1">
-            <div className="px-3 text-[10px] font-semibold uppercase tracking-[0.18em] text-neutral-500">
-              {section.title}
-            </div>
-            {section.items.map((item) => {
-              const Icon = item.icon;
-              const isActive =
-                pathname === item.href || pathname?.startsWith(item.href);
-              return (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className={cn(
-                    "flex items-center gap-3 rounded-lg px-3 py-2 text-sm transition-colors",
-                    "text-neutral-600 hover:bg-neutral-100 hover:text-neutral-900 dark:text-neutral-400 dark:hover:bg-neutral-900 dark:hover:text-neutral-50",
-                    isActive &&
-                      "bg-indigo-50 text-indigo-600 shadow-sm hover:bg-indigo-50 dark:bg-indigo-500/10 dark:text-indigo-400",
-                  )}
-                >
-                  <Icon className="h-4 w-4" />
-                  <span className="truncate">{item.label}</span>
-                </Link>
-              );
-            })}
-          </div>
-        ))}
+      <nav className="flex-1 space-y-1 overflow-y-auto pr-1 text-sm">
+        {menuItems.map((item) => {
+          const Icon = item.icon;
+          const isActive =
+            pathname === item.href ||
+            (item.href !== "/interior" && pathname?.startsWith(item.href));
+          return (
+            <Link
+              key={item.href}
+              href={item.href}
+              className={cn(
+                "flex items-center gap-3 rounded-lg px-3 py-2 text-sm transition-colors",
+                "text-neutral-600 hover:bg-neutral-100 hover:text-neutral-900 dark:text-neutral-400 dark:hover:bg-neutral-900 dark:hover:text-neutral-50",
+                isActive &&
+                  "bg-indigo-50 text-indigo-600 shadow-sm hover:bg-indigo-50 dark:bg-indigo-500/10 dark:text-indigo-400",
+              )}
+            >
+              <Icon className="h-4 w-4" />
+              <span className="truncate">{item.label}</span>
+            </Link>
+          );
+        })}
       </nav>
     </aside>
   );

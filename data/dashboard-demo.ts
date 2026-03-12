@@ -4,7 +4,7 @@ export const dashboardSummary = {
   leads: 42,
   activeTasks: 86,
   staffChange: "+3 new hires this quarter",
-  projectsChange: "+5 running construction projects",
+  projectsChange: "+5 live interior projects",
   leadsChange: "Healthy inbound pipeline",
   tasksChange: "Tasks distributed across all departments",
 };

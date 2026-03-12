@@ -1,12 +1,9 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { AppShell } from "@/components/layout/app-shell";
-import { AppProvider } from "@/components/state/app-provider";
 
 export const metadata: Metadata = {
-  title: "ARK ENGINEERING & CONSTRUCTIONS ERP",
-  description:
-    "Construction ERP operations control center for running projects, accounts, and site operations.",
+  title: "Interior ERP Demo",
+  description: "Interior Design ERP demo for Bangladesh-based studio",
 };
 
 export default function RootLayout({
@@ -15,11 +12,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className="min-h-screen bg-background text-foreground">
-        <AppProvider>
-          <AppShell>{children}</AppShell>
-        </AppProvider>
+    <html lang="en">
+      <body className="min-h-screen bg-neutral-50 text-neutral-900 dark:bg-neutral-950 dark:text-neutral-50">
+        <main className="">{children}</main>
       </body>
     </html>
   );

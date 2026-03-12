@@ -1,15 +1,23 @@
 "use client";
 
 import type { ReactNode } from "react";
-import { AppShell } from "@/components/layout/app-shell";
+import { Sidebar } from "@/components/layout/Sidebar";
+import { DashboardContainer } from "@/components/layout/DashboardContainer";
+import { DashboardHeader } from "@/components/layout/DashboardHeader";
 
 interface ERPLayoutProps {
   children: ReactNode;
 }
 
-// Legacy wrapper kept for backward compatibility.
-// New code should use AppShell directly via app/layout.tsx.
 export function ERPLayout({ children }: ERPLayoutProps) {
-  return <AppShell>{children}</AppShell>;
+  return (
+    <div className="flex min-h-screen w-full bg-neutral-50 text-neutral-900 dark:bg-neutral-950 dark:text-neutral-50">
+      <Sidebar />
+      <DashboardContainer>
+        <DashboardHeader />
+        {children}
+      </DashboardContainer>
+    </div>
+  );
 }
 

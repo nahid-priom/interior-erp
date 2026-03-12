@@ -86,7 +86,7 @@ export function TabsContent({
   if (!ctx || ctx.value !== value) return null;
 
   return (
-    <div className={cn("rounded-lg bg-white", className)} {...props} />
+    <div className={cn("rounded-lg border border-slate-200 bg-white", className)} {...props} />
   );
 }
 
